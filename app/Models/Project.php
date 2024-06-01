@@ -12,7 +12,6 @@ class Project extends Model
     protected $fillable = [
         'name',
         'description',
-        
     ];
 
     public static function rules()
@@ -20,7 +19,6 @@ class Project extends Model
         return [
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            
         ];
     }
 
@@ -29,7 +27,6 @@ class Project extends Model
         return [
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            
         ];
     }
 
