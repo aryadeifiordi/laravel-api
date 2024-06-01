@@ -11,7 +11,11 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
-        dd($projects);
+
+        if ($projects->isEmpty()) {
+            return view('welcome')->with('projects', null);
+        }
+
         return view('welcome')->with('projects', $projects);
     }
 }
