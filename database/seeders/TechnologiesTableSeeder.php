@@ -2,29 +2,35 @@
 
 namespace Database\Seeders;
 
+use Faker\Generator;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Technology;
 
-class TechnologiesTableSeeder extends Seeder
+class TechnologySeeder extends Seeder
 {
     /**
      * Run the database seeds.
      *
-     * @return void
+     *  @return void
      */
-    public function run()
+    public function run(Generator $faker)
     {
-        
-        $technologies = [
-            ['name' => 'Laravel'],
-            ['name' => 'Vue.js'],
-            
-            
+        $_technologies = [
+            'HTML',
+            'CSS',
+            'JavaScript',
+            'Php',
+            'Laravel',
+            'Angular',
+            'Vue',
         ];
 
-        
-        foreach ($technologies as $technology) {
-            Technology::create($technology);
+        foreach ($_technologies as $_technology) {
+            $Technology = new Technology();
+            $Technology->label = $_technology;
+            $Technology->color = $faker->hexColor();
+            $Technology->save();
         }
     }
 }
